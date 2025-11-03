@@ -12,6 +12,7 @@ An interactive and dynamic dashboard built with **Streamlit** that visualizes hi
 📊 **Interactive Line Charts using Plotly**  
 📋 **Year-wise Aggregation of Average Temperatures**  
 🧮 Built entirely using **Python + Streamlit**
+✅ **Automated Testing** using **Pytest** (data) and **Selenium** (UI)  
 
 ---
 
@@ -23,6 +24,9 @@ An interactive and dynamic dashboard built with **Streamlit** that visualizes hi
 | Streamlit   | Dashboard/Web Interface      |
 | Pandas      | Data Processing              |
 | Plotly      | Interactive Visualizations   |
+| **Pytest** | Automated Unit & Integration Tests |
+| **Selenium** | UI Automation Testing |
+| **WebDriver Manager** | Automatic ChromeDriver Setup |
 
 ---
 
@@ -51,4 +55,17 @@ country_filtered = country_temp[country_temp['Country'] == country]
 country_yearly = country_filtered.groupby('Year')['AverageTemperature'].mean().reset_index()
 st.line_chart(country_yearly.set_index('Year'))
 ```
+## 🧪 QA Automation Testing
+
+### ✅ **1. Data Validation – Pytest**
+File: `test_app.py`
+
+Tests include:
+- CSV loading and data structure validation  
+- Year filtering (1900 onwards)  
+- Average temperature calculation consistency  
+
+**Run Command:**
+```bash
+python -m pytest test_app.py --html=pytest_report.html --self-contained-html
 
